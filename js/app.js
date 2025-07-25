@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargar();
     
     function cargar(){
-        //lista.innerHTML = '';
+        lista.innerHTML = '';
 
         if(nNotas<=0){
             return;
@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if(nota === null){
                 continue;
             }
+
+            //solo muestra un preview de la nota si es muy larga
+            const limite = 130;
+            const preview = nota.contenido.length > limite ? nota.contenido.substring(0,limite).concat('...') : nota.contenido;
 
             //console.log(nota);
             
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //se asignan Clases
             noteCont.classList.add('note-cont');
             noteHeader.classList.add('note-header');
-            title.textContent = nota.titulo.trim();
+            title.textContent = nota.titulo;
             mContainer.classList.add('menu-container');
             btnOptions.textContent = '⋮';
             btnOptions.classList.add('btnOptions');
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuOptions.id = i;
             btnEditar.textContent = 'Editar';
             btnEliminar.textContent = 'Eliminar';
-            contenido.textContent = nota.contenido;
+            contenido.textContent = preview;
 
             //se arma el contenido
             noteCont.appendChild(noteHeader);
@@ -74,8 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = `./pages/note-editor.html?id=${e.target.parentElement.id}`;
             })
 
-            btnEliminar.addEventListener('click', ()=>{
-                
+            btnEliminar.addEventListener('click', (e)=>{
+                if(window.confirm(`Esta Seguro que quiere Eliminar la nota: ${nota.titulo}?\nEsta Acción NO se puede deshacer`)){
+                    console.log(`nota-${e.target.parentElement.id}`);
+                    
+                    localStorage.removeItem(`nota-${e.target.parentElement.id}`);
+                    cargar();
+                }
             })
         }
     }

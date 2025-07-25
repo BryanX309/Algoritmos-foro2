@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function validar(){
         valido = true;
 
-        if(titulo.value === ''){
+        if(titulo.value.trim() === ''){
             alert('se necesita ingresar un titulo para agregar la Nota');
             valido = false;
             return;
         }
 
-        if(contenido.value === ''){
+        if(contenido.value.trim() === ''){
             alert('la Nota no puede ir vacía, debe incluir contenido');
             valido = false;
             return;
