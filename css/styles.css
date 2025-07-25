@@ -62,13 +62,17 @@ content {
 }
 
 .units-grid {
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
 
 .unit-card{
+    width: 400px;
     background-color: var(--color-3);
     border-radius: 10px;
     padding: 25px;
@@ -97,153 +101,178 @@ content {
     margin: 10px auto;
 }
 
-.lessons-menu{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/*Clases Gestor de notas*/
+.title-row{
+    display: flex;
+    justify-content: space-between;
 }
 
-.lessons-menu li{
-    margin: 12px 0;
-}
-
-.lesson-link{
-    display: block;
-    color: var(--color-1);
-    text-decoration: none;
-    text-align: left;
-    padding: 15px 20px;
-    background-color: rgba(var(--color-4),0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(var(--color-ref-2),0.1);
-    font-weight: 500;
-}
-
-.lesson-link:hover{
-    background-color: rgba(var(--color-4),0.2);
-    border-color: rgba(var(--color-4),0.5);
-    color: var(--color-2);
-}
-
-.lesson-number{
-    display: inline-block;
-    background: rgba(var(--color-4),0.2);
-    color: var(--color-2);
-    padding: 4px 8px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.task-sec {
-    display: block;
-    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
-    gap: 30px;
-    margin-top: 30px;
-    
-    background-color: var(--color-3);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
-    border: 1px solid var(--color-3);
-    align-items: center;
-}
-
-.task-sec input{
-    /*display: auto;*/
-    color: var(--color-3);
-    padding: 15px 20px;
-    background-color: var(--color-1);
-    border-radius: 8px;
-    border: 1px solid rgba(var(--color-ref-2),0.1);
-    box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
-    font-weight: 500;
-}
-
-.task-sec input[type=number]::-webkit-inner-spin-button,
-.task-sec input[type=number]::-webkit-outer-spin-button{
-  -webkit-appearance: none;
-  appearance:none;
-}
-
-.task-result span[id = "resultado"],
-.resultado
-{
-    color: var(--color-2);
-} 
-
-.task-sec button{
+button{
     display: auto;
     color: var(--color-1);
-    padding: 15px 70px;
     background-color: rgba(var(--color-4),0.1);
     border-radius: 8px;
     border: 1px solid rgba(var(--color-ref-2),0.1);
     box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.2);
     font-weight: 700;
-    font-size: large;
+    font-size:larger;
     text-align: center;
+    padding: 0px 20px;
+    height: 50px;
+    cursor: pointer;
 }
 
-.task-sec button:hover{
+button:hover{
     background-color: rgba(var(--color-4),0.2);
     border-color: rgba(var(--color-4),0.5);
     color: var(--color-2);
     box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
 }
 
-.task-sec button:active{
+button:active{
     background-color: var(--color-3);
 }
 
-.input-form{
+.note-cont{
+    position: relative;
+    width: 85%;
+    display: solid;
+    margin-top: 10px;
+    background-color: rgb(55,55,55);
+    border-radius: 10px;
+    padding: 10px 25px;
+    box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
+    border: 1px solid var(--color-3);
+    justify-content: center;
+    text-align: left;
+}
+
+.note-cont .note-header{
+    border-bottom: 1px solid var(--color-3);
+    margin: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    height: 40px;
+}
+
+.btnOptions{
+    color: var(--color-1);
+    background-color: rgb(55,55,55);
+    border-radius: 8px;
+    border: 1px solid rgba(55,55,55,0.1);
+    font-weight: 700;
+    font-size:larger;
+    text-align: center;
+    padding: 0px 5px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.btnOptions:hover{
+    background-color: var(--color-3);
+    border: 1px solid rgba(55,55,55,0.1);
+    color: var(--color-1);
+}
+
+.btnOptions:active{
+    background-color: rgb(70,70,70);
+}
+
+/*Clases Editor de notas*/
+
+input{
+    color: var(--color-3);
+    padding: 10px;
+    background-color: var(--color-1);
+    border-radius: 8px;
+    border: 1px solid rgba(var(--color-ref-2),0.1);
+    box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
+    font-weight: 500;
+    max-height: 15px;
+}
+
+textarea{
+    color: var(--color-3);
+    margin-top: 10px;
+    background-color: var(--color-1);
+    border-radius: 8px;
+    border: 1px solid rgba(var(--color-ref-2),0.1);
+    box-shadow: 0 3px 10px rgba(var(--shadow-color-1),0.3);
+    font-weight: 500;
+    width: 95%;
+    max-width: 95%;
+    min-width: 95%;
+
+    min-height: 200px;
 }
 
 .input-row{
     display:flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
     gap: 10px;
-    padding:5px auto;
-}
-
-.input-row h4{
-    width: 250px;
-    text-align: left;
+    padding:5px;
 }
 
 .button-row{
+    display: flex;
+    justify-content: right;
     margin-top: 10px;
 }
 
 .button-row button{
-    width: 230px;
-    font-size: large;
+    margin: 0px 3px;
 }
 
-.row{
-    display:flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    padding:20px 10px;
+.menu-container {
+  position: relative;
+  display: inline-block;
 }
 
-.seccion{
-    width:300px;
-    /*padding: 5px;*/
+.dropdown {
+  position: absolute;
+  top: -20%;
+  right: -450%;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
 }
 
-.seccion h3{
-    text-align: center;
-    border-bottom: 1px solid rgbA(var(--color-ref-2), 0.3);
+.dropdown button{
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0px 5px;
+  text-align: left;
+  font-size: medium;
+  height: 35px;
 }
+
+.dropdown button:hover{
+    background-color: var(--color-3);
+    color: var(--color-1);
+}
+
+.dropdown button:active{
+    background-color: rgb(70,70,70);
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
 
 @media (max-width: 550px) {
    .input-row{
