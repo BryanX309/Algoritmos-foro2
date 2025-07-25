@@ -11,4 +11,4 @@
 - cards generadas automáticamente a partir del contenido del localStorage
 - cada card muestra el titulo de la nota, un preview de la nota principal y un botón de opciones
 - el botón de opciones despliega un mini-menu desplegable con las opciones de editar y eliminar la nota
--incluye la función editar y eliminar notas
+- incluye la función editar y eliminar notas
